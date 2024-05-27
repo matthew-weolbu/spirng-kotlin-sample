@@ -44,4 +44,7 @@ class UserController(private val userService: UserService) {
         userService.deleteUserById(id)
         return ResponseEntity(HttpStatus.NO_CONTENT)
     }
+
+    @GetMapping("/search")
+    fun findUsersByName(@RequestParam name: String): List<User> = userService.findUsersByName(name)
 }

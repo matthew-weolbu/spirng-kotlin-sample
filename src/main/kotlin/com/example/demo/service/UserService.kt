@@ -26,4 +26,5 @@ class UserService(private val userRepository: UserRepository) {
     userRepository.deleteById(id)
   }
 
+  fun findUsersByName(name: String): List<User> = userRepository.findByName(name)
 }
