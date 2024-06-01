@@ -1,18 +1,18 @@
 package com.example.demo.service
 
-import com.example.demo.entity.User
+import com.example.demo.entity.UserEntity
 import org.springframework.stereotype.Service
 import com.example.demo.repository.UserRepository
 
 @Service
 class UserService(private val userRepository: UserRepository) {
-  fun findAllUsers(): List<User> = userRepository.findAll()
+  fun findAllUsers(): List<UserEntity> = userRepository.findAll()
 
-  fun findUserById(id: Long): User? = userRepository.findById(id).orElse(null)
+  fun findUserById(id: Long): UserEntity? = userRepository.findById(id).orElse(null)
 
-  fun createUser(user: User): User = userRepository.save(user)
+  fun createUser(user: UserEntity): UserEntity = userRepository.save(user)
 
-  fun updateUser(id: Long, userDetails: User): User? {
+  fun updateUser(id: Long, userDetails: UserEntity): UserEntity? {
     val user = userRepository.findById(id).orElse(null)
     user?.let {
       it.name = userDetails.name
@@ -26,5 +26,5 @@ class UserService(private val userRepository: UserRepository) {
     userRepository.deleteById(id)
   }
 
-  fun findUsersByName(name: String): List<User> = userRepository.findByName(name)
+  fun findUsersByName(name: String): List<UserEntity> = userRepository.findByName(name)
 }
