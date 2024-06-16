@@ -32,6 +32,9 @@ dependencies {
 	implementation("com.querydsl:querydsl-jpa:5.1.0:jakarta")
 	kapt("com.querydsl:querydsl-apt:5.1.0:jakarta")
 
+	// coroutine
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
+
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
 	runtimeOnly("com.h2database:h2")
